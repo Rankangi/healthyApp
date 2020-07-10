@@ -3,7 +3,6 @@ package fr.pcmaintenance.healthy;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +14,8 @@ import org.threeten.bp.LocalDate;
 
 import java.util.Calendar;
 import java.util.HashSet;
+
+import fr.pcmaintenance.healthy.Decorator.DateDecorator;
 
 public class CalendarViewApp extends AppCompatActivity {
 

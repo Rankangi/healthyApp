@@ -1,4 +1,4 @@
-package fr.pcmaintenance.healthy;
+package fr.pcmaintenance.healthy.Decorator;
 
 import android.content.Context;
 import android.text.style.ForegroundColorSpan;
@@ -10,6 +10,8 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 
 import java.util.HashSet;
+
+import fr.pcmaintenance.healthy.R;
 
 public class DateDecorator implements DayViewDecorator {
     private int mColor;
@@ -29,8 +31,6 @@ public class DateDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new ForegroundColorSpan(mColor));
-//        view.addSpan(new BackgroundColorSpan(Color.BLUE));
-        view.setBackgroundDrawable(ContextCompat.getDrawable(mcontext,R.drawable.home_gradient_rouge));
+        view.setBackgroundDrawable(ContextCompat.getDrawable(mcontext, R.drawable.home_gradient_rouge));
     }
 }
