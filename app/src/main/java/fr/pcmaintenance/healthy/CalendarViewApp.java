@@ -47,11 +47,11 @@ public class CalendarViewApp extends Activity {
         RelativeLayout smileyJaune = findViewById(R.id.smileyJaune);
         RelativeLayout smileyVertClaire = findViewById(R.id.smileyVertClaire);
         RelativeLayout smileyVert = findViewById(R.id.smileyVert);
-        smileyRouge.setOnClickListener(new OnSmileyClickListener(smileyRouge));
-        smileyOrange.setOnClickListener(new OnSmileyClickListener(smileyOrange));
-        smileyJaune.setOnClickListener(new OnSmileyClickListener(smileyJaune));
-        smileyVertClaire.setOnClickListener(new OnSmileyClickListener(smileyVertClaire));
-        smileyVert.setOnClickListener(new OnSmileyClickListener(smileyVert));
+        smileyRouge.setOnClickListener(new OnSmileyClickListener(smileyRouge,db,calendarView));
+        smileyOrange.setOnClickListener(new OnSmileyClickListener(smileyOrange,db,calendarView));
+        smileyJaune.setOnClickListener(new OnSmileyClickListener(smileyJaune,db,calendarView));
+        smileyVertClaire.setOnClickListener(new OnSmileyClickListener(smileyVertClaire,db,calendarView));
+        smileyVert.setOnClickListener(new OnSmileyClickListener(smileyVert,db,calendarView));
 
 
 

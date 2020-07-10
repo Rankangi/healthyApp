@@ -1,12 +1,18 @@
 package fr.pcmaintenance.healthy.Helper;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+
 import java.io.File;
+
+import fr.pcmaintenance.healthy.Modele.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -71,4 +77,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DATES);
     }
+
+    public void setHealthToDate(String date, int health) {
+        Date currentDate = getDate(date);
+        if (currentDate.getDate() == null){
+            addDate(date,health);
+        }else if (currentDate.getHealth() != health){
+            updateDate(date,health);
+        }
+    }
+
+    private void updateDate(String date, int health) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues dateBDD = new ContentValues();
+        dateBDD.put(KEY_DATES_DATE, date);
+        dateBDD.put(KEY_DATES_HEALTH, health);
+        db.update(TABLE_DATES, dateBDD, KEY_DATES_DATE + " = ?", new String[] {date});
+    }
+
+    private void addDate(String date, int health) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues dateBDD = new ContentValues();
+        dateBDD.put(KEY_DATES_DATE, date);
+        dateBDD.put(KEY_DATES_HEALTH, health);
+        db.insert(TABLE_DATES, null, dateBDD);
+    }
+
+    public Date getDate(String date){
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuerry = "SELECT * FROM " + TABLE_DATES
+                + " WHERE " + KEY_DATES_DATE + " = '" + date + "'";
+        Cursor c = db.rawQuery(selectQuerry, null);
+        Date mdate = new Date();
+        if (c.moveToFirst()){
+            mdate.setDate(date);
+            mdate.setHealth(c.getInt(c.getColumnIndex(KEY_DATES_HEALTH)));
+        }
+        c.close();
+        return mdate;
+    }
+
 }
