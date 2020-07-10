@@ -20,12 +20,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import fr.pcmaintenance.healthy.Helper.DatabaseHelper;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
     private static final int MODE_DARK = 0;
     private static final int MODE_LIGHT = 1;
+
+    DatabaseHelper db;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(getApplicationContext());
 
         setDarkMode(getWindow());
         setContentView(R.layout.activity_main);
