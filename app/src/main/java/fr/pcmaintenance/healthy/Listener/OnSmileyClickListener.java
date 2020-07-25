@@ -1,8 +1,13 @@
 package fr.pcmaintenance.healthy.Listener;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
+import java.util.Calendar;
 
 import fr.pcmaintenance.healthy.CalendarViewApp;
 import fr.pcmaintenance.healthy.Helper.DatabaseHelper;
@@ -23,6 +28,7 @@ public class OnSmileyClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        if (calendarView.getSelectedDate().isAfter(CalendarDay.today())){ return;}
         String color = view.getResources().getResourceEntryName(mlayout.getId());
         int oldHealth;
         switch (color){
