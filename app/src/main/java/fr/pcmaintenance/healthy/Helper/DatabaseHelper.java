@@ -11,6 +11,8 @@ import android.util.Log;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.pcmaintenance.healthy.Modele.Date;
 
@@ -78,13 +80,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DATES);
     }
 
-    public void setHealthToDate(String date, int health) {
+    /*
+        Renvoie -1 si on ajoute une date
+        -2 si on ne modifie pas de date
+        sinon renvoie l'humeur de la date (0-5)
+     */
+    public int setHealthToDate(String date, int health) {
         Date currentDate = getDate(date);
         if (currentDate.getDate() == null){
             addDate(date,health);
+            return -1;
         }else if (currentDate.getHealth() != health){
             updateDate(date,health);
+            return currentDate.getHealth();
         }
+        return -2;
     }
 
     private void updateDate(String date, int health) {
@@ -115,6 +125,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         c.close();
         return mdate;
+    }
+
+
+    public List<Date> getAllDate(){
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuerry = "SELECT  * FROM " + TABLE_DATES;
+        Cursor c = db.rawQuery(selectQuerry, null);
+        List<Date> listDate = new ArrayList<>();
+        if (c.moveToFirst()){
+            do {
+                Date mdate = new Date();
+                mdate.setDate(c.getString(c.getColumnIndex(KEY_DATES_DATE)));
+                mdate.setHealth(c.getInt(c.getColumnIndex(KEY_DATES_HEALTH)));
+                listDate.add(mdate);
+            } while (c.moveToNext());
+        }
+        c.close();
+        return listDate;
     }
 
 }

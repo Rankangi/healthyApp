@@ -18,7 +18,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/home_gradient_rose"
+            android:background="@drawable/home_gradient_rouge"
             android:minHeight="100dp"
             android:padding="20dp">
 

@@ -1,7 +1,6 @@
 package fr.pcmaintenance.healthy.Decorator;
 
 import android.content.Context;
-import android.text.style.ForegroundColorSpan;
 
 import androidx.core.content.ContextCompat;
 
@@ -13,13 +12,11 @@ import java.util.HashSet;
 
 import fr.pcmaintenance.healthy.R;
 
-public class DateDecorator implements DayViewDecorator {
-    private int mColor;
+public class RedDateDecorator implements DayViewDecorator {
     private HashSet<CalendarDay> mCalendarDayCollection;
     private Context mcontext;
 
-    public DateDecorator(int color, HashSet<CalendarDay> calendarDayCollection, Context context) {
-        mColor = color;
+    public RedDateDecorator(HashSet<CalendarDay> calendarDayCollection, Context context) {
         mCalendarDayCollection = calendarDayCollection;
         mcontext = context;
     }
