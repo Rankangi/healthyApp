@@ -1,10 +1,6 @@
 package fr.pcmaintenance.healthy;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -12,14 +8,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
-import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.TextStyle;
 
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +35,7 @@ public class CalendarViewApp extends Activity {
     private DatabaseHelper db;
     private TextView dateText;
     private LinearLayout smiley;
+    private LinearLayout button;
     private MaterialCalendarView calendarView;
     private HashSet<CalendarDay> redListe = new HashSet<CalendarDay>();
     private HashSet<CalendarDay> orangeListe  = new HashSet<CalendarDay>();
@@ -65,6 +63,7 @@ public class CalendarViewApp extends Activity {
         // Get date TextView and the Layout of the smiley
         dateText = findViewById(R.id.date);
         smiley = findViewById(R.id.smiley);
+        button = findViewById(R.id.layout_button);
 
         // Get each smiley
         RelativeLayout smileyRouge = findViewById(R.id.smileyRouge);
@@ -136,6 +135,7 @@ public class CalendarViewApp extends Activity {
         public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
             dateText.setText(date.getDate().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) + ", " + date.getDate().getDayOfMonth() + " " + date.getDate().getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE) + " " + date.getYear());
             smiley.setVisibility(View.VISIBLE);
+            button.setVisibility(View.VISIBLE);
         }
     };
 

@@ -1,13 +1,9 @@
 package fr.pcmaintenance.healthy.Listener;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-
-import java.util.Calendar;
 
 import fr.pcmaintenance.healthy.CalendarViewApp;
 import fr.pcmaintenance.healthy.Helper.DatabaseHelper;

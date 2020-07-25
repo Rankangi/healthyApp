@@ -17,19 +17,46 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"/>
 
     <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="100"
+        android:visibility="invisible">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sauvegarder"
+            android:textSize="20sp"
+            android:layout_weight="50"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:textSize="20sp"
+            android:layout_weight="50"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/smiley"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/smileyRouge"
@@ -83,7 +110,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/smiley_vert"/>
         </RelativeLayout>
