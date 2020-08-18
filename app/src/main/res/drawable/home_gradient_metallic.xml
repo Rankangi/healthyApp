@@ -4,9 +4,15 @@
         android:radius="15dp"
         />
     <gradient
-        android:angle="0"
+        android:angle="90"
         android:centerX="0%"
-        android:startColor="#799f0c"
-        android:endColor="#acbb78"
+        android:startColor="#403b4a"
+        android:endColor="#e7e9bb"
+        android:type="linear"
+        />
+
+    <size
+        android:width="334dp"
+        android:height="100dp"
         />
 </shape>

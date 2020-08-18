@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activityValue">
+        <item>--- Choisir une activité ---</item>
+        <item>Un travail effectué presque\n exclusivement assis</item>
+        <item>Le plus souvent assis mais parfois debout\nou avec quelques déplacements</item>
+        <item>Une activité pratiquée essentiellement\n debout</item>
+        <item>Un travail très physique</item>
+    </string-array>
+</resources>

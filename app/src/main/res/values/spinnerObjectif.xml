@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="objectifValue">
+        <item>--- Choisir un Objectif ---</item>
+        <item>Perdre du poids</item>
+        <item>Commencer la stabilisation de votre poid</item>
+    </string-array>
+</resources>

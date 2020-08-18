@@ -1,9 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/home_gradient_metallic"
     tools:context="fr.pcmaintenance.healthy.LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:fontFamily="sans-serif-medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:text="My Health"
+            android:textSize="40sp"
+            android:textColor="#FFFFFF"/>
+
+        <EditText
+            android:id="@+id/pseudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:inputType="textPersonName"
+            android:hint="Votre prénom"
+            android:textColorHint="#13D319"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_login"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edit"
+            android:padding="20dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:inputType="date"
+            android:hint="Date de naissance"
+            android:textColorHint="#13D319"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_birthday"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edit"
+            android:padding="20dp"
+            android:layout_marginTop="10dp" />
+
+        <Switch
+            android:id="@+id/sexe"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Homme / Femme"
+            android:layout_marginHorizontal="25dp"
+            android:textColorHint="#13D319"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_sexe"
+            android:drawablePadding="10dp"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/Taille"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:layout_marginLeft="15dp"
+                android:inputType="number"
+                android:hint="Taille"
+                android:textColorHint="#13D319"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_taille"
+                android:drawablePadding="10dp"
+                android:background="@drawable/edit"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/Poids"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="numberDecimal"
+                android:hint="Poids"
+                android:textColorHint="#13D319"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_poids"
+                android:drawablePadding="10dp"
+                android:background="@drawable/edit"
+                android:padding="20dp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:entries="@array/activityValue"
+            android:background="@drawable/edit"
+            android:padding="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/objectif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:entries="@array/activityValue"
+            android:background="@drawable/edit"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/go"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_gradient_vert"
+            android:text="Sauvegarder"
+            android:textColor="@color/whiteTextColor"
+            android:onClick="createUser"/>
+
+    </LinearLayout>
+</LinearLayout>

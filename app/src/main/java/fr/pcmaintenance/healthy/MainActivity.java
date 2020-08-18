@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
     private View.OnClickListener todayOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, TodayActivity.class);
             startActivity(intent);
         }
     };
@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity
                 public void run() {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    finish();
                 }
             },40);
         }
