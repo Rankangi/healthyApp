@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatDelegate;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
@@ -14,11 +13,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+
+import net.colindodd.gradientlayout.GradientRelativeLayout;
 
 import fr.pcmaintenance.healthy.Helper.DatabaseHelper;
 
@@ -36,7 +39,6 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigationMyProfile:
                     return true;
@@ -54,10 +56,17 @@ public class MainActivity extends AppCompatActivity
             return false;
         }
     };
-    private View.OnClickListener soloOnClick = new View.OnClickListener() {
+    private View.OnClickListener calendarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, CalendarViewApp.class);
+            startActivity(intent);
+        }
+    };
+    private View.OnClickListener todayOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
     };
@@ -69,6 +78,18 @@ public class MainActivity extends AppCompatActivity
 
         setDarkMode(getWindow());
         setContentView(R.layout.activity_main);
+
+        Handler handler;
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },40);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -99,7 +120,9 @@ public class MainActivity extends AppCompatActivity
         });
 
         RelativeLayout solo = findViewById(R.id.solo);
-        solo.setOnClickListener(soloOnClick);
+        GradientRelativeLayout today = findViewById(R.id.today);
+        today.setOnClickListener(todayOnClick);
+        solo.setOnClickListener(calendarOnClick);
 
     }
 

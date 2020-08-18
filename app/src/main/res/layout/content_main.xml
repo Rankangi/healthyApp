@@ -69,7 +69,7 @@
                             <TextView
                                 android:id="@+id/textViewSub1Title"
                                 style="@style/viewParent.headerText.HomeCardTitle"
-                                android:text="Solo" />
+                                android:text="Calendrier" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -86,7 +86,7 @@
                 app:cardPreventCornerOverlap="true">
 
                 <net.colindodd.gradientlayout.GradientRelativeLayout
-                    android:id="@+id/admin"
+                    android:id="@+id/today"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
@@ -106,7 +106,7 @@
                     <TextView
                         android:id="@+id/textViewSub2Title2"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="Espace Parent" />
+                        android:text="Aujourd'hui" />
 
                 </net.colindodd.gradientlayout.GradientRelativeLayout>
             </androidx.cardview.widget.CardView>

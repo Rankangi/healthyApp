@@ -24,16 +24,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "HealthyApp";
 
     private static final String TABLE_DATES = "dates";
+    private static final String TABLE_NAMES = "names";
 
     // NOTES Dates - column names
     private static final String KEY_DATES_DATE = "date";
     private static final String KEY_DATES_HEALTH = "date_health";
 
 
+    // NOTES Names - column names
+    private static final String KEY_NAMES_NAME = "name";
+    private static final String KEY_NAMES_BIRTHDAY = "date_de_naissance";
+    private static final String KEY_NAMES_SEXE = "sexe";
+    private static final String KEY_NAMES_TAILLE = "taille";
+    private static final String KEY_NAMES_POIDS = "poids";
+    private static final String KEY_NAMES_ACTIVITY = "activité";
+    private static final String KEY_NAMES_OBJECTIF = "objectif";
+
     private static final String CREATE_TABLE_DATES = "CREATE TABLE "
             + TABLE_DATES + "("
             + KEY_DATES_DATE + " DATETIME PRIMARY KEY,"
             + KEY_DATES_HEALTH + " INTEGER"
+            + ")";
+
+    private static final String CREATE_TABLE_NAMES = "CREATE TABLE "
+            + TABLE_NAMES + "("
+            + KEY_NAMES_NAME + " STRING PRIMARY KEY,"
+            + KEY_NAMES_BIRTHDAY + " DATETIME,"
+            + KEY_NAMES_SEXE + " INTEGER,"
+            + KEY_NAMES_TAILLE + " INTEGER,"
+            + KEY_NAMES_POIDS + " FLOAT,"
+            + KEY_NAMES_ACTIVITY + " INTEGER,"
+            + KEY_NAMES_OBJECTIF + " INTEGER"
             + ")";
 
 
@@ -51,12 +72,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.w(LOG,"LA BDD N'EXISTE PAS");
             Log.w(LOG,"CREATE_TABLE_DATES   : ");
             db.execSQL(CREATE_TABLE_DATES);
+            Log.w(LOG,"CREATE_TABLE_NAMES   : ");
+            db.execSQL(CREATE_TABLE_NAMES);
         }
 
     }
 
     //Check database already exist or not
-    private boolean checkDataBase(){
+    public boolean checkDataBase(){
 
         boolean checkDB = false;
 
@@ -127,6 +150,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mdate;
     }
 
+    public int getHealth(String date){
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuerry = "SELECT " + KEY_DATES_HEALTH + " FROM " + TABLE_DATES
+                + " WHERE " + KEY_DATES_DATE + " = '" + date + "'";
+        Cursor c = db.rawQuery(selectQuerry, null);
+        if (c.moveToFirst()){
+            return c.getInt(c.getColumnIndex(KEY_DATES_HEALTH));
+        }
+        return -1;
+    }
 
     public List<Date> getAllDate(){
         SQLiteDatabase db = getReadableDatabase();

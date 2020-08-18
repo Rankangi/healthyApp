@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,7 +36,8 @@ public class CalendarViewApp extends Activity {
     private DatabaseHelper db;
     private TextView dateText;
     private LinearLayout smiley;
-    private LinearLayout button;
+    private Button save;
+    private Button cancel;
     private MaterialCalendarView calendarView;
     private HashSet<CalendarDay> redListe = new HashSet<CalendarDay>();
     private HashSet<CalendarDay> orangeListe  = new HashSet<CalendarDay>();
@@ -63,8 +65,9 @@ public class CalendarViewApp extends Activity {
         // Get date TextView and the Layout of the smiley
         dateText = findViewById(R.id.date);
         smiley = findViewById(R.id.smiley);
-        button = findViewById(R.id.layout_button);
-
+        save = findViewById(R.id.save);
+        cancel = findViewById(R.id.cancel);
+  ;;
         // Get each smiley
         RelativeLayout smileyRouge = findViewById(R.id.smileyRouge);
         RelativeLayout smileyOrange = findViewById(R.id.smileyOrange);
@@ -135,7 +138,8 @@ public class CalendarViewApp extends Activity {
         public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
             dateText.setText(date.getDate().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) + ", " + date.getDate().getDayOfMonth() + " " + date.getDate().getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE) + " " + date.getYear());
             smiley.setVisibility(View.VISIBLE);
-            button.setVisibility(View.VISIBLE);
+            save.setVisibility(View.VISIBLE);
+            cancel.setVisibility(View.VISIBLE);
         }
     };
 
