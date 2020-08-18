@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.pcmaintenance.healthy.Modele.Date;
+import fr.pcmaintenance.healthy.Modele.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -178,4 +179,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listDate;
     }
 
+    public User getUser(){
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuerry = "SELECT  * FROM " + TABLE_NAMES;
+        Cursor c = db.rawQuery(selectQuerry, null);
+        User user = new User();
+        if (c.moveToFirst()){
+            user.setName(c.getString(c.getColumnIndex(KEY_NAMES_NAME)));
+            user.setBirthday(c.getString(c.getColumnIndex(KEY_NAMES_BIRTHDAY)));
+            user.setSexe(c.getInt(c.getColumnIndex(KEY_NAMES_SEXE)));
+            user.setTaille(c.getInt(c.getColumnIndex(KEY_NAMES_TAILLE)));
+            user.setPoids(c.getFloat(c.getColumnIndex(KEY_NAMES_POIDS)));
+            user.setActivité(c.getInt(c.getColumnIndex(KEY_NAMES_ACTIVITY)));
+            user.setObjectif(c.getInt(c.getColumnIndex(KEY_NAMES_OBJECTIF)));
+            return user;
+        }
+        return null;
+    }
 }
