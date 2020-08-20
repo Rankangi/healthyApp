@@ -8,7 +8,7 @@
     tools:context="fr.pcmaintenance.healthy.MainActivity"
     tools:showIn="@layout/app_bar_main"
     style="@style/parent.contentLayout"
-    android:background="#00000000">
+    android:background="@drawable/home_gradient_back_to_earth">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,14 +23,17 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="My healthy \nApplication"
+                    android:text="My Health"
                     style="@style/viewParent.headerText"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-medium"/>
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/hero"
+                    android:src="@drawable/ic_logoplaind"
                     android:adjustViewBounds="true" />
             </LinearLayout>
 

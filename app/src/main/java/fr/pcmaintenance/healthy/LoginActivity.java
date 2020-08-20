@@ -23,6 +23,7 @@ public class LoginActivity extends Activity {
     }
 
     public void createUser(View view) {
+        finish();
         EditText name = findViewById(R.id.pseudo);
         EditText jour = findViewById(R.id.birthdayJour);
         EditText mois = findViewById(R.id.birthdayMois);

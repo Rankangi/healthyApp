@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         db = new DatabaseHelper(getApplicationContext());
 
-        setDarkMode(getWindow());
         setContentView(R.layout.activity_main);
 
         User user = db.getUser();
@@ -157,30 +156,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_dark_mode) {
-            //code for setting dark mode
-            //true for dark mode, false for day mode, currently toggling on each click
-            DarkModePrefManager darkModePrefManager = new DarkModePrefManager(this);
-            darkModePrefManager.setDarkMode(!darkModePrefManager.isNightMode());
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            recreate();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    //create a seperate class file, if required in multiple activities
-    public void setDarkMode(Window window){
-        if(new DarkModePrefManager(this).isNightMode()){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            changeStatusBar(MODE_DARK,window);
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            changeStatusBar(MODE_LIGHT,window);
-        }
     }
     public void changeStatusBar(int mode, Window window){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){

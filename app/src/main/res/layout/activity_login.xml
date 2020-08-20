@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_gradient_metallic"
+    android:background="@drawable/home_gradient_back_to_earth"
     tools:context="fr.pcmaintenance.healthy.LoginActivity">
 
     <LinearLayout
@@ -17,9 +17,9 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:id="@+id/imageView3"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="150dp"
-            android:src="@drawable/ic_logo" />
+            android:src="@drawable/ic_logoplaind" />
 
         <TextView
             android:id="@+id/textView2"
