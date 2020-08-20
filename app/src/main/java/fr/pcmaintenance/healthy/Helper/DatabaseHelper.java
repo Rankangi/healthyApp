@@ -196,4 +196,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return null;
     }
+
+    public void addUser(User user){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues dateBDD = new ContentValues();
+        dateBDD.put(KEY_NAMES_NAME, user.getName());
+        dateBDD.put(KEY_NAMES_BIRTHDAY, user.getBirthday().getDate());
+        dateBDD.put(KEY_NAMES_SEXE, user.getSexe());
+        dateBDD.put(KEY_NAMES_POIDS, user.getPoids());
+        dateBDD.put(KEY_NAMES_TAILLE, user.getTaille());
+        dateBDD.put(KEY_NAMES_ACTIVITY, user.getActivité());
+        dateBDD.put(KEY_NAMES_OBJECTIF, user.getObjectif());
+        db.insert(TABLE_NAMES, null, dateBDD);
+    }
 }

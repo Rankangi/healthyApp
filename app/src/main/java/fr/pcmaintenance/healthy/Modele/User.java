@@ -3,12 +3,15 @@ package fr.pcmaintenance.healthy.Modele;
 public class User {
 
     private String name;
-    private Date birthday;
+    private Date birthday = new Date();
     private int sexe;
     private int taille;
     private float poids;
     private int activité;
     private int objectif;
+
+    public User() {
+    }
 
     public String getName() {
         return name;
@@ -48,6 +51,14 @@ public class User {
 
     public void setSexe(int sexe) {
         this.sexe = sexe;
+    }
+
+    public void setSexe(boolean sexe) {
+        if (sexe){
+            this.sexe = 1;
+        }else{
+            this.sexe = 0;
+        }
     }
 
     public void setTaille(int taille) {
