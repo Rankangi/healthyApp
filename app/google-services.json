@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "747244520735",
+    "firebase_url": "https://my-health-3a55a.firebaseio.com",
+    "project_id": "my-health-3a55a",
+    "storage_bucket": "my-health-3a55a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747244520735:android:57368a25d424de7e369c2a",
+        "android_client_info": {
+          "package_name": "fr.insacvl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747244520735-30816hj310feq819h6lc8nfavisr3fmc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcHJ-EaMskgV5bcWihlEiRxaLX2RHVzoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747244520735-30816hj310feq819h6lc8nfavisr3fmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

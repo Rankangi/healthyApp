@@ -8,12 +8,18 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import fr.pcmaintenance.healthy.Helper.DatabaseHelper;
 import fr.pcmaintenance.healthy.Modele.User;
 
 public class LoginActivity extends Activity {
 
     DatabaseHelper db;
+    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,14 @@ public class LoginActivity extends Activity {
                 String date = "" + a + "-" + m + "-" + j;
                 user.setBirthday(date);
                 db.addUser(user);
+                Map<String, Object> users = new HashMap<>();
+                users.put("name", user.getName());
+                users.put("sexe", user.getSexe());
+                users.put("poids", user.getPoids());
+                users.put("taille",user.getTaille());
+                users.put("activiter",user.getActivité());
+                users.put("objectif",user.getObjectif());
+                db2.collection("user").document(user.getName()).set(users);
                 finish();
             }
         }
